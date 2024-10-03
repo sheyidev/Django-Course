@@ -1,7 +1,37 @@
 {% extends 'main.html' %} 
-
 {% block content %}
 
+<p>Hello, this is the {{page}} page </p>
+
+
+{{msg}}
+
+{% if num > 10  %}
+<p>Number is greater than 10</p>
+{% else %}
+<p>Number is less than 10 </p>
+{% endif  %}
+
+<h1>Projects Template</h1>
 <p>This is RECIPES Paragraph template and its on fire and  WATER</p>
+
+<hr>
+
+<ul></ul>
+    {% for project in projects %}
+        <!-- 
+        <li>Title: {{ project.title }} -------- {{ project.description }}</li> 
+        -->
+        <li>
+            Title: 
+            {% if projects.id %}
+                <a href="{% url 'recipe' projects.id %}">{{ projects.title }}</a>
+            {% else %}
+                {{ projects.title }}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
 
 {% endblock content  %}

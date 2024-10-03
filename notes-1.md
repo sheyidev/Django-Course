@@ -42,7 +42,7 @@ about.html
 - import os - yo set file path
 - Go to TEMPLATES variable in DIRS 
 - os.path.join(BASE_DIR, 'templates'),
-- 
+
 
 ## render with view 
 
@@ -53,7 +53,7 @@ about.html
 ```python
 navbar.html
 
-include the functionality of navbar.html to other templates using jinja 
+include the functionality of navbar.html to other templates using django templating engine jinja 
 
 {% include 'navbar.html' %}
 ```
@@ -86,3 +86,51 @@ include the functionality of navbar.html to other templates using jinja
 
 
 ## Rendering Data into templates 
+- first just make the project page our default 
+-  make the url and empty string ''
+```python
+## example of using jinja 
+
+My first name is {{ first_name }} My last name is {{ lsat_name }}
+
+## access object in the template
+
+{{ my_dict.key }}
+
+{{ my_object.attribute }}
+
+{{ my_list.0 }}
+
+## using tags for conditions 
+
+{% if user.is_authenticated %}Hello, {{ user.username}}.{% endif %}
+
+## accesing variables from views ,py
+msg = "This is the view page"
+
+- pass it as dict 
+- return render(request, 'projects/recipes.html, {'msg': msg})
+- access the key in the template
+
+## writing the dict gets bigger, have a variable called context
+def recipes(request):
+    msg = 'main project'
+    return render(request, 'projects/recipes.html', context)
+
+## writing an if statememtt is using a single curly brace
+
+## output dictionary by pasting the dictionary in the views.py
+- and output it on the template reccipes.html
+
+<ul>
+    {% for project in projects  %}
+    <li>Title:{{project.title}}</li>
+    {% endfor  %}
+
+<ul>
+
+## dynamic page rendering using the url name 
+ <li>Title:<a href= "{% url 'recipe' projects.id %}">{{project.title}}
+</li>
+```
+## Building our database
