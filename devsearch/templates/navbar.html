@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Management API</title>
+    <style>
+        /* Navbar styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 17px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #3e8e41;
+            color: white;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar .nav-links a {
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .nav-links .active {
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .menu-icon {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu-icon {
+                display: block;
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+            }
+
+            .navbar.open .nav-links {
+                display: flex;
+            }
+
+            .navbar .nav-links a {
+                text-align: left;
+                padding: 10px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">Recipe API</div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Recipes</a>
+            <a href="#">Add Recipe</a>
+            <a href="#">API Docs</a>
+            <a href="#">About</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>

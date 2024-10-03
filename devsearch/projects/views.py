@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def recipes(request):
-    return HttpResponse('Here is the recipes page')
+    return render(request, 'projects/recipes.html' )
 
-def ingredients(reques, pk):
-    return HttpResponse('Here is the INGREDIENT page' + ' ' + str(pk))
+def ingredients(request, pk):
+    return render(request, 'projects/ingredients.html')
 
 # Create your views here.
