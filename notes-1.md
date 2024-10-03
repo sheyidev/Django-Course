@@ -22,4 +22,13 @@ paths = [/home, /about]
 returns
 
 about.html
+
+## projects get big and views should not be in the urls
+
+- projects app will manage the views 
+- create a new file called urls.py in your app as well
 ```
+
+## MAKE Django know about the app urls 
+- use include function
+- path('', include('projects.urls'))
